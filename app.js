@@ -1,52 +1,52 @@
 /**
- * Balaji Ventures - Video Streaming Controller
+ * Sri Sai Balaji Ventures and Construction - Video Streaming Controller
  * Natural Cinematic Code-Generated Video Animations (Normal Realistic Colors)
  * 2-Column Watch Page, Interactive Comments, Light & Dark Theme Support
  */
 
-// Dataset of 4 Balaji Ventures Videos
+// Dataset of 4 Sri Sai Balaji Ventures and Construction Videos
 const BALAJI_VIDEOS = [
   {
     id: 0,
-    title: "Balaji Ventures - Project Introduction & Vision",
+    title: "Sri Sai Balaji Ventures and Construction - Project Introduction & Vision",
     durationSec: 30,
     durationStr: "0:30",
     views: "180K views • 2 days ago",
     likes: 14200,
-    channel: "Balaji Ventures",
-    description: "Welcome to Balaji Ventures. This presentation showcases our digital media platform with realistic code-rendered landscape cinematography, smooth timeline controls, and responsive user interaction.",
+    channel: "Sri Sai Balaji Ventures and Construction",
+    description: "Welcome to Sri Sai Balaji Ventures and Construction. This presentation showcases our digital media platform with realistic code-rendered landscape cinematography, smooth timeline controls, and responsive user interaction.",
     renderScene: drawSunsetOceanScene
   },
   {
     id: 1,
-    title: "Balaji Ventures - Coastal Horizon & Sunset Waves",
+    title: "Sri Sai Balaji Ventures and Construction - Coastal Horizon & Sunset Waves",
     durationSec: 30,
     durationStr: "0:30",
     views: "125K views • 4 days ago",
     likes: 9800,
-    channel: "Balaji Ventures",
+    channel: "Sri Sai Balaji Ventures and Construction",
     description: "A tranquil coastal landscape visual created with code, featuring gentle ocean tide rollers, warm golden sun reflections on water, and serene shoreline scenery.",
     renderScene: drawCoastalWavesScene
   },
   {
     id: 2,
-    title: "Balaji Ventures - Mountain Pine Sunrise",
+    title: "Sri Sai Balaji Ventures and Construction - Mountain Pine Sunrise",
     durationSec: 30,
     durationStr: "0:30",
     views: "95K views • 1 week ago",
     likes: 7400,
-    channel: "Balaji Ventures",
+    channel: "Sri Sai Balaji Ventures and Construction",
     description: "Alpine mountain landscape visual rendered in real-time on canvas, showcasing mist-covered pine valleys, soft morning sky, and dawn light breaking over summits.",
     renderScene: drawMountainSunriseScene
   },
   {
     id: 3,
-    title: "Balaji Ventures - Twilight City Lights",
+    title: "Sri Sai Balaji Ventures and Construction - Twilight City Lights",
     durationSec: 30,
     durationStr: "0:30",
     views: "140K views • 2 weeks ago",
     likes: 11200,
-    channel: "Balaji Ventures",
+    channel: "Sri Sai Balaji Ventures and Construction",
     description: "Evening twilight skyline with natural deep navy tones, amber architectural illumination, river water reflections, and calming night atmosphere.",
     renderScene: drawTwilightCityScene
   }
@@ -67,7 +67,7 @@ let commentsData = [
     author: "Arjun Verma",
     initials: "AV",
     time: "1 day ago",
-    text: "The natural lighting and smooth motion on this video are fantastic. Balaji Ventures has built an incredible video platform here!",
+    text: "The natural lighting and smooth motion on this video are fantastic. Sri Sai Balaji Ventures and Construction has built an incredible video platform here!",
     likes: 42,
     liked: false
   },
@@ -85,7 +85,7 @@ let commentsData = [
     author: "Rohan Kumar",
     initials: "RK",
     time: "3 days ago",
-    text: "Great work by Balaji Ventures! Solid presentation and the layout is easy to navigate on both mobile and laptop.",
+    text: "Great work by Sri Sai Balaji Ventures and Construction! Solid presentation and the layout is easy to navigate on both mobile and laptop.",
     likes: 8,
     liked: false
   }
@@ -279,7 +279,7 @@ function renderRecommendedVideos(activeId) {
       </div>
       <div class="rec-info">
         <div class="rec-title">${video.title}</div>
-        <div class="rec-channel">Balaji Ventures</div>
+        <div class="rec-channel">Sri Sai Balaji Ventures and Construction</div>
         <div class="rec-stats">${video.views.split("•")[0].trim()}</div>
       </div>
     `;
@@ -435,11 +435,11 @@ function drawSunsetOceanScene(ctx, w, h, t) {
   ctx.closePath();
   ctx.fill();
 
-  // Clean Balaji Ventures Title Overlay
+  // Clean Sri Sai Balaji Ventures and Construction Title Overlay
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 20px 'Plus Jakarta Sans', sans-serif";
   ctx.textAlign = "left";
-  ctx.fillText("BALAJI VENTURES", 36, 46);
+  ctx.fillText("SRI SAI BALAJI VENTURES AND CONSTRUCTION", 36, 46);
 
   ctx.fillStyle = "#fef3c7";
   ctx.font = "500 13px 'Plus Jakarta Sans', sans-serif";
@@ -847,7 +847,7 @@ function initActionButtons() {
     if (isSubscribed) {
       subscribeBtn.textContent = "Subscribed";
       subscribeBtn.classList.add("subscribed");
-      showToastNotice("Subscribed to Balaji Ventures");
+      showToastNotice("Subscribed to Sri Sai Balaji Ventures and Construction");
     } else {
       subscribeBtn.textContent = "Subscribe";
       subscribeBtn.classList.remove("subscribed");

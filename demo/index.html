@@ -3,22 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Balaji Ventures</title>
+  <title>Sri Sai Balaji Ventures and Construction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0A0B0D;
+      z-index: 50;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .intro-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .intro-inner {
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .intro-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(3rem, 9vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      font-weight: 800;
+    }
+    .open-btn {
+      margin-top: 28px;
+      border: none;
+      background: #FF5500;
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 24px rgba(255, 85, 0, 0.45);
+    }
+    .app-root {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    .app-root.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body class="dark-theme">
+  <div id="introScreen" class="intro-screen">
+    <div class="intro-inner">
+      <h1 class="intro-title">Sri Sai Balaji Ventures and Construction</h1>
+      <button id="openVentureBtn" class="open-btn" type="button">Open</button>
+    </div>
+  </div>
+
   <!-- App Root -->
-  <div class="app-root">
+  <div class="app-root hidden" id="ventureAppRoot">
 
     <!-- Top Navigation Bar -->
     <header class="app-header" id="appHeader">
       <div class="header-left">
-        <a href="#" class="brand-link" id="logoBtn" aria-label="Balaji Ventures Home">
-          <div class="brand-badge-icon">BV</div>
-          <span class="brand-name">Balaji Ventures</span>
+        <a href="#" class="brand-link" id="logoBtn" aria-label="Sri Sai Balaji Ventures and Construction Home">
+          <div class="brand-badge-icon">SS</div>
+          <span class="brand-name">Sri Sai Balaji Ventures and Construction</span>
         </a>
       </div>
 
@@ -420,8 +478,8 @@
       <div class="account-user-row">
         <div class="avatar-circle">BV</div>
         <div class="account-user-meta">
-          <div class="user-name">Balaji Ventures</div>
-          <div class="user-handle">@balajiventures</div>
+          <div class="user-name">Sri Sai Balaji Ventures and Construction</div>
+          <div class="user-handle">@srisaibalajiventuresandconstruction</div>
         </div>
       </div>
       <div class="menu-divider"></div>
@@ -441,5 +499,19 @@
   </div>
 
   <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const introScreen = document.getElementById('introScreen');
+      const appRoot = document.getElementById('ventureAppRoot');
+      const openBtn = document.getElementById('openVentureBtn');
+
+      if (introScreen && appRoot && openBtn) {
+        openBtn.addEventListener('click', function () {
+          introScreen.classList.add('hidden');
+          appRoot.classList.remove('hidden');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
