@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Balaji Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- App Root -->
+  <div class="app-root">
+
+    <!-- Top Navigation Bar -->
+    <header class="app-header" id="appHeader">
+      <div class="header-left">
+        <a href="#" class="brand-link" id="logoBtn" aria-label="Balaji Ventures Home">
+          <div class="brand-badge-icon">BV</div>
+          <span class="brand-name">Balaji Ventures</span>
+        </a>
+      </div>
+
+      <!-- Center Search (Desktop) -->
+      <div class="header-center desktop-only">
+        <div class="search-box-wrap">
+          <svg viewBox="0 0 24 24" class="search-icon"><path d="M20.87 20.17l-5.59-5.59A7.93 7.93 0 0 0 17 9.5a8 8 0 1 0-8 8 7.93 7.93 0 0 0 5.08-1.72l5.59 5.59.2.2.7-.7zM9.5 16.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+          <input type="text" id="desktopSearchInput" class="search-input" placeholder="Search videos..." autocomplete="off">
+          <button class="clear-btn hidden" id="desktopClearSearchBtn" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" class="icon-sm"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="header-right">
+        <!-- Theme Toggle Button (Light / Dark Mode) -->
+        <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Mode" title="Toggle Light/Dark Mode">
+          <svg viewBox="0 0 24 24" class="icon" id="themeIconSvg">
+            <!-- Sun Icon (shown in dark mode to switch to light) -->
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Search Trigger -->
+        <button class="icon-btn mobile-only" id="mobileSearchTrigger" aria-label="Search">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M20.87 20.17l-5.59-5.59A7.93 7.93 0 0 0 17 9.5a8 8 0 1 0-8 8 7.93 7.93 0 0 0 5.08-1.72l5.59 5.59.2.2.7-.7zM9.5 16.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+        </button>
+
+        <!-- Account Profile Avatar -->
+        <button class="avatar-button" id="accountMenuBtn" aria-label="Account">
+          <div class="avatar-circle">BV</div>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Search Bar Overlay -->
+    <div class="mobile-search-overlay hidden" id="mobileSearchBar">
+      <button class="icon-btn" id="mobileSearchClose" aria-label="Close search">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+      </button>
+      <input type="text" id="mobileSearchInput" placeholder="Search videos..." autocomplete="off">
+    </div>
+
+    <!-- Main Content Shell -->
+    <div class="page-shell">
+
+      <!-- Desktop Sidebar Rail -->
+      <aside class="sidebar-rail desktop-only" id="sidebarRail">
+        <nav class="rail-nav">
+          <a href="#" class="rail-item active" id="railHomeBtn" aria-label="Home">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></svg>
+            <span>Home</span>
+          </a>
+          <button class="rail-item" id="railAccountBtn" aria-label="Account">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="currentColor"/></svg>
+            <span>Account</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- VIEW 1: HOME FEED VIEW -->
+      <main class="content-view" id="homeView">
+        <section class="video-feed-section">
+          <div class="feed-header">
+            <h1 class="feed-title">Balaji Ventures Videos</h1>
+            <p class="feed-subtitle">Select any video to open the dedicated player page with comments and video made by code.</p>
+          </div>
+
+          <!-- Video Cards Grid -->
+          <div class="video-cards-grid" id="videoCardsGrid">
+
+            <!-- Video Card 0 -->
+            <article class="video-card" data-id="0">
+              <div class="card-media">
+                <canvas class="thumb-canvas" id="thumbCanvas0" width="400" height="225"></canvas>
+                <span class="duration-badge">0:30</span>
+              </div>
+              <div class="card-details">
+                <div class="author-avatar">BV</div>
+                <div class="card-meta">
+                  <h3 class="video-card-title">Balaji Ventures - Project Introduction & Vision</h3>
+                  <div class="author-name">Balaji Ventures</div>
+                  <div class="video-stats">180K views • 2 days ago</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Video Card 1 -->
+            <article class="video-card" data-id="1">
+              <div class="card-media">
+                <canvas class="thumb-canvas" id="thumbCanvas1" width="400" height="225"></canvas>
+                <span class="duration-badge">0:30</span>
+              </div>
+              <div class="card-details">
+                <div class="author-avatar">BV</div>
+                <div class="card-meta">
+                  <h3 class="video-card-title">Balaji Ventures - Coastal Horizon & Sunset Waves</h3>
+                  <div class="author-name">Balaji Ventures</div>
+                  <div class="video-stats">125K views • 4 days ago</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Video Card 2 -->
+            <article class="video-card" data-id="2">
+              <div class="card-media">
+                <canvas class="thumb-canvas" id="thumbCanvas2" width="400" height="225"></canvas>
+                <span class="duration-badge">0:30</span>
+              </div>
+              <div class="card-details">
+                <div class="author-avatar">BV</div>
+                <div class="card-meta">
+                  <h3 class="video-card-title">Balaji Ventures - Mountain Pine Sunrise</h3>
+                  <div class="author-name">Balaji Ventures</div>
+                  <div class="video-stats">95K views • 1 week ago</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Video Card 3 -->
+            <article class="video-card" data-id="3">
+              <div class="card-media">
+                <canvas class="thumb-canvas" id="thumbCanvas3" width="400" height="225"></canvas>
+                <span class="duration-badge">0:30</span>
+              </div>
+              <div class="card-details">
+                <div class="author-avatar">BV</div>
+                <div class="card-meta">
+                  <h3 class="video-card-title">Balaji Ventures - Twilight City Lights</h3>
+                  <div class="author-name">Balaji Ventures</div>
+                  <div class="video-stats">140K views • 2 weeks ago</div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Loading Skeletons -->
+        <section class="loading-skeletons-section">
+          <div class="skeletons-title">Loading Thumbnails</div>
+          <div class="skeletons-grid">
+            <div class="skeleton-item">
+              <div class="skeleton-thumb-placeholder"></div>
+              <div class="skeleton-caption">
+                <div class="skeleton-circle"></div>
+                <div class="skeleton-bars">
+                  <div class="skeleton-line w-85"></div>
+                  <div class="skeleton-line w-55"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skeleton-item">
+              <div class="skeleton-thumb-placeholder"></div>
+              <div class="skeleton-caption">
+                <div class="skeleton-circle"></div>
+                <div class="skeleton-bars">
+                  <div class="skeleton-line w-85"></div>
+                  <div class="skeleton-line w-55"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Site Footer Label -->
+        <footer class="site-footer">
+          <div class="footer-container">
+            <div class="footer-credits">
+              <span class="footer-text">Made by <strong>Teemup Technology</strong></span>
+              <span class="footer-bullet">•</span>
+              <span class="footer-demo-pill">Demo Version</span>
+            </div>
+            <div class="footer-info">
+              <span>Balaji Ventures Video Platform</span>
+            </div>
+          </div>
+        </footer>
+      </main>
+
+      <!-- VIEW 2: DEDICATED IMPROVED WATCH PAGE (2-COLUMN THEATER LAYOUT) -->
+      <main class="content-view hidden" id="watchView">
+        <div class="watch-page-wrapper">
+
+          <!-- Top Back Bar -->
+          <div class="watch-top-bar">
+            <button class="back-link-btn" id="backToHomeBtn">
+              <svg viewBox="0 0 24 24" class="icon"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+              <span>Back to Feed</span>
+            </button>
+          </div>
+
+          <!-- 2-Column Theater Layout -->
+          <div class="watch-columns-layout">
+
+            <!-- LEFT MAIN COLUMN: Video Player + Meta + Description + Comments -->
+            <div class="watch-primary-col">
+
+              <!-- Improved Video Player Screen (Natural Code-Generated Video) -->
+              <div class="player-viewport" id="playerViewport">
+                <canvas id="natureVideoCanvas" width="960" height="540"></canvas>
+
+                <!-- Professional Video Player Controls Bar -->
+                <div class="player-controls-bar" id="playerControlsBar">
+                  <div class="seek-track" id="videoSeekTrack">
+                    <div class="seek-progress" id="videoSeekProgress"></div>
+                  </div>
+                  <div class="controls-actions">
+                    <div class="actions-left">
+                      <button class="ctrl-btn" id="codePlayToggle" aria-label="Play/Pause">
+                        <svg viewBox="0 0 24 24" class="icon" id="playIconSvg"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="#ffffff"/></svg>
+                      </button>
+                      <button class="ctrl-btn" id="codeRestartBtn" aria-label="Replay">
+                        <svg viewBox="0 0 24 24" class="icon"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" fill="#ffffff"/></svg>
+                      </button>
+                      <button class="ctrl-btn" id="codeMuteBtn" aria-label="Mute/Unmute">
+                        <svg viewBox="0 0 24 24" class="icon" id="volumeIconSvg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#ffffff"/></svg>
+                      </button>
+                      <span class="time-label" id="videoTimeDisplay">0:00 / 0:30</span>
+                    </div>
+                    <div class="actions-right">
+                      <button class="ctrl-btn" id="codeFullscreenBtn" aria-label="Fullscreen">
+                        <svg viewBox="0 0 24 24" class="icon"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#ffffff"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Title & Channel Header Row -->
+              <div class="video-info-box">
+                <h1 class="watch-video-title" id="watchVideoTitle">Balaji Ventures - Project Introduction & Vision</h1>
+                
+                <div class="watch-channel-row">
+                  <div class="channel-group">
+                    <div class="channel-avatar">BV</div>
+                    <div class="channel-meta">
+                      <div class="channel-title">Balaji Ventures</div>
+                      <div class="channel-sub">245K subscribers</div>
+                    </div>
+                    <button class="subscribe-btn" id="subscribeBtn">Subscribe</button>
+                  </div>
+
+                  <div class="video-action-buttons">
+                    <button class="action-pill-btn" id="likeBtn">
+                      <svg viewBox="0 0 24 24" class="icon-sm"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" fill="currentColor"/></svg>
+                      <span id="likeCountText">14K</span>
+                    </button>
+                    <button class="action-pill-btn" id="shareBtn">
+                      <svg viewBox="0 0 24 24" class="icon-sm"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z" fill="currentColor"/></svg>
+                      <span>Share</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Description Card -->
+                <div class="video-description-card">
+                  <div class="views-date-row" id="watchVideoStats">180K views • 2 days ago</div>
+                  <p class="description-text" id="watchVideoDesc">
+                    Welcome to Balaji Ventures. This video is generated live by code on HTML5 canvas with natural color harmonies, smooth frame pacing, and responsive motion graphics.
+                  </p>
+                </div>
+              </div>
+
+              <!-- COMMENTS SECTION -->
+              <section class="comments-section" id="commentsSection">
+                <div class="comments-header">
+                  <h2 class="comments-count" id="commentsCountHeader">3 Comments</h2>
+                </div>
+
+                <!-- Add Comment Form -->
+                <div class="add-comment-box">
+                  <div class="user-avatar-sm">BV</div>
+                  <div class="add-comment-field">
+                    <input type="text" id="newCommentInput" placeholder="Add a comment..." autocomplete="off">
+                    <div class="comment-actions-row hidden" id="commentActionsRow">
+                      <button class="comment-cancel-btn" id="cancelCommentBtn">Cancel</button>
+                      <button class="comment-submit-btn" id="submitCommentBtn">Comment</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Comments List -->
+                <div class="comments-list" id="commentsList">
+                  <!-- Comment 1 -->
+                  <div class="comment-item">
+                    <div class="comment-avatar">AV</div>
+                    <div class="comment-body">
+                      <div class="comment-author-row">
+                        <span class="comment-author">Arjun Verma</span>
+                        <span class="comment-time">1 day ago</span>
+                      </div>
+                      <div class="comment-content">
+                        The natural lighting and smooth motion on this video are fantastic. Balaji Ventures has built an incredible video platform here!
+                      </div>
+                      <div class="comment-actions">
+                        <button class="comment-like-btn" data-liked="false">
+                          <svg viewBox="0 0 24 24" class="icon-xs"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" fill="currentColor"/></svg>
+                          <span class="like-num">42</span>
+                        </button>
+                        <button class="reply-text-btn">Reply</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Comment 2 -->
+                  <div class="comment-item">
+                    <div class="comment-avatar">PR</div>
+                    <div class="comment-body">
+                      <div class="comment-author-row">
+                        <span class="comment-author">Priya Rao</span>
+                        <span class="comment-time">2 days ago</span>
+                      </div>
+                      <div class="comment-content">
+                        Love how clean the video player is. The timeline scrubbing feels so responsive, and no lag whatsoever.
+                      </div>
+                      <div class="comment-actions">
+                        <button class="comment-like-btn" data-liked="false">
+                          <svg viewBox="0 0 24 24" class="icon-xs"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" fill="currentColor"/></svg>
+                          <span class="like-num">19</span>
+                        </button>
+                        <button class="reply-text-btn">Reply</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Comment 3 -->
+                  <div class="comment-item">
+                    <div class="comment-avatar">RK</div>
+                    <div class="comment-body">
+                      <div class="comment-author-row">
+                        <span class="comment-author">Rohan Kumar</span>
+                        <span class="comment-time">3 days ago</span>
+                      </div>
+                      <div class="comment-content">
+                        Great work by Balaji Ventures! Solid presentation and the layout is easy to navigate on both mobile and laptop.
+                      </div>
+                      <div class="comment-actions">
+                        <button class="comment-like-btn" data-liked="false">
+                          <svg viewBox="0 0 24 24" class="icon-xs"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" fill="currentColor"/></svg>
+                          <span class="like-num">8</span>
+                        </button>
+                        <button class="reply-text-btn">Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR COLUMN: Recommended Videos List -->
+            <aside class="watch-secondary-col">
+              <h2 class="sidebar-heading">More from Balaji Ventures</h2>
+              <div class="recommended-videos-list" id="recommendedVideosList"></div>
+            </aside>
+
+          </div>
+
+          <!-- Site Footer Label -->
+          <footer class="site-footer">
+            <div class="footer-container">
+              <div class="footer-credits">
+                <span class="footer-text">Made by <strong>Teemup Technology</strong></span>
+                <span class="footer-bullet">•</span>
+                <span class="footer-demo-pill">Demo Version</span>
+              </div>
+              <div class="footer-info">
+                <span>Balaji Ventures Video Platform</span>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </main>
+
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Home, Search, Account) -->
+    <nav class="mobile-bottom-bar mobile-only" id="mobileBottomBar">
+      <button class="mobile-tab-btn active" id="mobTabHome">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></svg>
+        <span>Home</span>
+      </button>
+
+      <button class="mobile-tab-btn" id="mobTabSearch">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M20.87 20.17l-5.59-5.59A7.93 7.93 0 0 0 17 9.5a8 8 0 1 0-8 8 7.93 7.93 0 0 0 5.08-1.72l5.59 5.59.2.2.7-.7zM9.5 16.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+        <span>Search</span>
+      </button>
+
+      <button class="mobile-tab-btn" id="mobTabAccount">
+        <div class="mob-avatar">BV</div>
+        <span>Account</span>
+      </button>
+    </nav>
+
+    <!-- Account Menu Flyout -->
+    <div class="account-flyout hidden" id="accountMenu">
+      <div class="account-user-row">
+        <div class="avatar-circle">BV</div>
+        <div class="account-user-meta">
+          <div class="user-name">Balaji Ventures</div>
+          <div class="user-handle">@balajiventures</div>
+        </div>
+      </div>
+      <div class="menu-divider"></div>
+      <button class="account-item-btn" id="menuThemeToggleBtn">
+        <span>Appearance: </span>
+        <strong id="menuThemeText">Dark Mode</strong>
+      </button>
+      <button class="account-item-btn" id="accSettingsBtn">Settings</button>
+      <button class="account-item-btn" id="accSignOutBtn">Sign Out</button>
+    </div>
+
+    <!-- Toast Notice -->
+    <div class="toast-popup hidden" id="toastPopup">
+      <span id="toastText">Action completed</span>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
